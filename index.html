@@ -1,56 +1,43 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Macspell : A spell checker designed on Cocoa's spell-checking facilities" />
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Macspell by ruda</title>
+    <title>Macspell</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/ruda/macspell">View on GitHub</a>
-    <div class="shell">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Macspell</h1>
-            <h2>A spell checker designed on Cocoa's spell-checking facilities</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ruda/macspell">View on GitHub</a>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/ruda/macspell/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/ruda/macspell/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+          <h1 id="project_title">Macspell</h1>
+          <h2 id="project_tagline">A spell checker designed on Cocoa's spell-checking facilities</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ruda/macspell/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ruda/macspell/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>About</h3>
 
 <p>MacSpell is a spell checker designed on Cocoa's spell-checking facilities. MacSpell can function as an <code>ispell -a</code> replacement.</p>
 
 <h3>Installation</h3>
+
+<p>The quick and easy way is:</p>
 
 <pre><code>curl -O https://raw.github.com/ruda/macspell/master/macspell.py
 chmod +x macspell.py
@@ -58,7 +45,7 @@ chmod +x macspell.py
 
 <h3>Usage</h3>
 
-<p>Check spelling of the README file.</p>
+<p>Check spelling of README file.</p>
 
 <pre><code>./macspell.py --list &lt; README
 </code></pre>
@@ -79,31 +66,35 @@ Sumé
 ^D
 </code></pre>
 
-<h3>Emacs and MacSpell</h3>
+<h3>MacSpell and Emacs</h3>
 
-<p>To use MacSpell in Emacs, just include in your Emacs initialization file:</p>
+<p>On Emacs, you can run the spell checker with <code>M-x ispell-buffer</code> or change to any dictionary, like “Brazilian Portuguese”, with <code>M-x ispell-change-dictionary RET brasileiro RET</code>.</p>
+
+<p>To use MacSpell in Emacs, just include the above lines in your Emacs initialization file:</p>
 
 <pre><code>;; MacSpell
-(setq ispell-program-name "/path/to/macspell.py")
-(setq ispell-extra-args '("--encoding=latin1" "--auto-lang=no"))
-(setq ispell-dictionary "english")
+(setq ispell-program-name "/path/to/macspell.py"
+      ispell-extra-args '("--encoding=latin1" "--auto-lang=no")
+      ispell-dictionary "english")
 </code></pre>
 
-<p>Inside Emacs you can do spell checker with <code>M-x ispell-buffer</code> or change to any dictionary, like Brazilian Portuguese <code>M-x ispell-change-dictionary RET brasileiro</code>.</p>
+<p>Why the options above?</p>
+
+<ul>
+<li>
+<code>--encoding=latin1</code> Emacs expects latin1 (iso8859-1) ending when running ispell.</li>
+<li>
+<code>--auto-lang=no</code> Do not use automatic language selection.</li>
+</ul>
       </section>
+    </div>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/ruda">ruda</a> can be found on <a href="https://github.com/ruda/macspell">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Macspell maintained by <a href="https://github.com/ruda">ruda</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
-
     </div>
 
               <script type="text/javascript">
@@ -116,6 +107,7 @@ Sumé
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
