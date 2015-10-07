@@ -1,76 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>MacSpell by ruda</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Macspell by ruda</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
-
-        <header>
-          <h1>Macspell</h1>
-          <h2>A spell checker designed on Cocoa's spell-checking facilities</h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/ruda/macspell/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/ruda/macspell/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/ruda/macspell" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h3>
-<a name="about" class="anchor" href="#about"><span class="octicon octicon-link"></span></a>About</h3>
+    <div class="wrapper">
+      <header>
+        <h1>MacSpell</h1>
+        <p>A spell checker designed on Cocoa&#39;s spell-checking facilities</p>
+        <p class="view"><a href="https://github.com/ruda/macspell">View the Project on GitHub <small>ruda/macspell</small></a></p>
+        <ul>
+          <li><a href="https://github.com/ruda/macspell/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ruda/macspell/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ruda/macspell">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h3>
 
 <p>MacSpell is a spell checker designed on Cocoa's spell-checking facilities. MacSpell can function as an <code>ispell -a</code> replacement.</p>
 
 <h3>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>The quick and easy way is:</p>
+<p>The quick and easy way to install is:</p>
 
 <pre><code>curl -O https://raw.github.com/ruda/macspell/master/macspell.py
 chmod +x macspell.py
 </code></pre>
 
+<p>Another alternative is to install with Python's <code>easy_install</code> tool:</p>
+
+<pre><code>sudo easy_install macspell
+</code></pre>
+
+<p>The utility can be found in <code>/usr/local/bin/macspell.py</code>.</p>
+
 <h3>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<p>Check spelling of README file.</p>
+<p>List possible misspelled words from file README.</p>
 
-<pre><code>./macspell.py --list &lt; README
+<pre><code>macspell.py --list &lt; README
+</code></pre>
+
+<p>Interactively check spelling of file README.</p>
+
+<pre><code>macspell.py --check README
 </code></pre>
 
 <p>Learning new words.</p>
 
-<pre><code>./macspell.py --learn
+<pre><code>macspell.py --learn
 Rudá
 Sumé
+foobar
 ^D
 </code></pre>
 
 <p>Forget learned words:</p>
 
-<pre><code>./macspell.py --unlearn
+<pre><code>macspell.py --unlearn
 Rudá
 Sumé
+foobar
 ^D
 </code></pre>
 
 <h3>
-<a name="macspell-and-emacs" class="anchor" href="#macspell-and-emacs"><span class="octicon octicon-link"></span></a>MacSpell and Emacs</h3>
+<a id="macspell-and-emacs" class="anchor" href="#macspell-and-emacs" aria-hidden="true"><span class="octicon octicon-link"></span></a>MacSpell and Emacs</h3>
 
 <p>On Emacs, you can run the spell checker with <code>M-x ispell-buffer</code> or change to any dictionary, like “Brazilian Portuguese”, with <code>M-x ispell-change-dictionary RET brasileiro RET</code>.</p>
 
@@ -90,14 +100,24 @@ Sumé
 <li>
 <code>--auto-lang=no</code> Do not use automatic language selection.</li>
 </ul>
-        </section>
 
-        <footer>
-          Macspell is maintained by <a href="https://github.com/ruda">ruda</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<h3>
+<a id="macspell-and-nano" class="anchor" href="#macspell-and-nano" aria-hidden="true"><span class="octicon octicon-link"></span></a>MacSpell and Nano</h3>
 
-                  <script type="text/javascript">
+<p>Put in your <code>.nanorc</code> the following line:</p>
+
+<pre><code>set speller "/path/to/macspell.py -x -c"
+</code></pre>
+
+<p>Use <code>Control+t</code> to start the spelling checker. It will start MacSpell.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/ruda">ruda</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -108,7 +128,5 @@ Sumé
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
