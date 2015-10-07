@@ -22,7 +22,16 @@
       <h3>
 <a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h3>
 
-<p>MacSpell is a spell checker designed on Cocoa's spell-checking facilities. MacSpell can function as an <code>ispell -a</code> replacement.</p>
+<p>MacSpell is a spell checker designed on Cocoa's spell-checking facilities.</p>
+
+<p>Features:</p>
+
+<ul>
+<li>Pure command line utility</li>
+<li>Interactive spelling checker capability</li>
+<li>Can act as Ispell replacement (<code>ispell -a</code>)</li>
+<li>All dictionaries included (it uses the <code>NSSpellChecker</code> provided by OS X)</li>
+</ul>
 
 <h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
@@ -102,6 +111,33 @@ foobar
 </code></pre>
 
 <p>Use <code>Control+t</code> to start the spell checker. It will run MacSpell in interactive mode and after that, return to the editor.</p>
+
+<h3>
+<a id="usage-1" class="anchor" href="#usage-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<pre>
+Usage: macspell.py [options] [command]
+
+Where [command] is one of:
+  -h|--help     display this help
+  -v|--version      display version
+  -c|--check= check mode, spell check file and write to file
+  -l|--list     list mode, "ispell -l" compatibility mode
+  -a|--pipe     pipe mode, "ispell -a" compatibility mode
+  --learn       learn mode, learn new words from pipe
+  --unlearn     unlearn mode, forget words from pipe
+  --list-dict       list all dictionaries available
+  --list-lang       list all languages available
+  --list-user-lang  list user preferred languages
+
+and [options] is any of the following:
+  -x|--dont-back    do not create backup file (see option --check)
+  -d|--dict=|--master=    name of the dictionary to use
+            (english, american, brasileiro, etc.)
+  --lang=<code>     name of the language to use (en, en_US, pt_BR, etc.)
+  --encoding=  text encoding to use (utf-8, latin1, etc.)
+  --auto-lang=[yes|no]  automatically identify languages
+</code></pre>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/ruda/macspell">MacSpell</a> is maintained by <a href="https://github.com/ruda">ruda</a>.</span>
