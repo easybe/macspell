@@ -57,7 +57,7 @@ def get_line(stream=None):
     if stream is None:
         try:
             # Python 3
-            stream = io.TextIOWrapper(sys.stdin.buffer, encoding=Config['ENCODING'])
+            stream = sys.stdin.buffer
         except AttributeError:
             stream = sys.stdin
     line = stream.readline()
@@ -66,15 +66,21 @@ def get_line(stream=None):
         if not isinstance(line, unicode):
             line = unicode(line, Config['ENCODING'])
     except NameError:
-        pass
+        if not isinstance(line, str):
+            line = line.decode(Config['ENCODING'])
     logger.debug('Got line: %s', line)
     return line
 
 def put_line(line, stream=None):
     if stream is None:
-        stream = sys.stdout
+        try:
+            stream = sys.stdout.buffer
+        except AttributeError:
+            stream = sys.stdout
+
     logger.debug('Put line: %s', line)
-    stream.write(line)
+
+    stream.write(line.encode(Config['ENCODING']))
 
 def get_checker():
     from Cocoa import NSSpellChecker
@@ -303,7 +309,7 @@ def pipe_mode(checker):
 
                 if n == 0:
                     stdout.write(b'# ' + word.encode(Config['ENCODING']) + b' '
-                                 + str(_range.location) + b'\n')
+                                 + str(_range.location).encode() + b'\n')
                 else:
                     stdout.write(
                         b'& ' + word.encode(Config['ENCODING']) + b' %d %d:'
